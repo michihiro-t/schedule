@@ -1,10 +1,7 @@
 <header>スケジュール管理アプリ</header>
 <p>スケジュール詳細</p>
 
-<div><%= link_to "一覧へ戻る", :posts %></div>
-<div><%= link_to "編集", [:edit,@post] %></div>
-
-<div><%= @post.title %></div>
+<div class="ListTitle"><%= @post.title %></div>
 
 <table>
 
@@ -27,3 +24,8 @@
   </tr>
 
 </table>
+
+<div class="UnderBotton">
+  <span><%= link_to "一覧へ戻る", :posts %></span>
+  <span><%= link_to "編集", [:edit,@post] %><span>
+</div>

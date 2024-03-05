@@ -1,40 +1,44 @@
 <header>スケジュール管理アプリ</header>
-<p>予定一覧</p>
 
-<p><%= link_to "新規登録", :new_post %></p>
+<div class="Container">
+    <div class="PageTitle">
+        <p class="ListTitle">予定一覧</p>
+        <p class="new"><%= link_to "新規追加", :new_post %></p>
+    </div>
 
-<% if flash[:notice] %>
-    <p class="notice"><%= flash[:notice] %></p>   
-<% end %>
+    <% if flash[:notice] %>
+        <p class="notice"><%= flash[:notice] %></p>   
+    <% end %>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>開始日</th>
+                <th>終了日</th>
+                <th>終日</th>
+                <th>更新日時</th>
+            </tr>
+        </thead>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>タイトル</th>
-            <th>開始日</th>
-            <th>終了日</th>
-            <th>終日</th>
-            <th>更新日時</th>
-        </tr>
-    </thead>
-
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-            <td><%= post.id %></td>
-            <td><%= post.title %></td>
-            <td><%= post.start_date.to_s(:datetime_jp_2) %></td>
-            <td><%= post.end_date.to_s(:datetime_jp_2)%></td>
-            <td><%= post.all_day ? '○' : '' %></td>
-            <td><%= post.updated_at.to_s(:datetime_jp) %></td>
-            <td><%= link_to "詳細", post %></td>
-            <td><%= link_to "編集", [:edit, post] %></td>
-            <td><%= link_to "削除", post, method: :delete, data: {confirm:"本当に削除しますか？"} %></td>
-        </tr>
-      <% end %>
-    </tbody>
-</table>
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr>
+                <td><%= post.id %></td>
+                <td><%= post.title %></td>
+                <td><%= post.start_date.to_s(:datetime_jp_2) %></td>
+                <td><%= post.end_date.to_s(:datetime_jp_2)%></td>
+                <td><%= post.all_day ? '○' : '' %></td>
+                <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+                <td><%= link_to "詳細", post %></td>
+                <td><%= link_to "編集", [:edit, post] %></td>
+                <td><%= link_to "削除", post, method: :delete, data: {confirm:"本当に削除しますか？"} %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+</div>
 
 <header>
     <div>予定の合計数:<%= @posts.size %></div>
