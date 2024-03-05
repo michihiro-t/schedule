@@ -1,6 +1,8 @@
 <header>スケジュール管理アプリ</header>
 <p>予定の編集</p>
 
+<%= render "shared/error", obj: @post %>
+
 <%= form_with model: @post do |f| %>
       <table>
         <tr>
