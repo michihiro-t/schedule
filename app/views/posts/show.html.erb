@@ -1,0 +1,31 @@
+<header>スケジュール管理アプリ</header>
+<p>スケジュール詳細</p>
+
+<div class="ListTitle"><%= @post.title %></div>
+
+<table>
+
+  <tr>
+    <th>開始日</th>
+    <td><%= @post.start_date.to_s(:datetime_jp_2) %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= @post.end_date.to_s(:datetime_jp_2) %></td>
+  </tr>
+
+  <tr>
+    <th>終日</th>
+    <td><%= @post.all_day ? '○' : ''  %></td>
+  </tr>
+  <tr>
+    <th>スケジュールメモ</th>
+    <td><%= @post.schedule_memo %></td>
+  </tr>
+
+</table>
+
+<div class="UnderBotton">
+  <span><%= link_to "一覧へ戻る", :posts %></span>
+  <span><%= link_to "編集", [:edit,@post] %><span>
+</div>
